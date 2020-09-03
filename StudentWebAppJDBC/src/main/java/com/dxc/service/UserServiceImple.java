@@ -10,24 +10,33 @@ import java.util.List;
 
 import com.dxc.beans.User;
 import com.dxc.dao.UserJdbcDAO;
+import com.dxc.hibdao.StudentHibDAO;
+import com.dxc.hibdao.UserHibDAO;
 import com.dxc.util.ConnectionManager;
 
 public class UserServiceImple implements Service<User> {
 	
 	public static boolean validate(String username, String password)  {
+//		try {
+//			UserJdbcDAO userJdbcDAO = new UserJdbcDAO();
+//			return userJdbcDAO.validate(username, password);
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		UserHibDAO stHD=new UserHibDAO();
 		try {
-			UserJdbcDAO userJdbcDAO = new UserJdbcDAO();
-			return userJdbcDAO.validate(username, password);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
+			return stHD.validate(username, password);
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -39,21 +48,28 @@ public class UserServiceImple implements Service<User> {
 	@Override
 	public boolean save(User e) {
 		// TODO Auto-generated method stub
+//		try {
+//			UserJdbcDAO userJdbcDAO = new UserJdbcDAO();
+//			return userJdbcDAO.save(e);
+//		} catch (FileNotFoundException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (ClassNotFoundException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (SQLException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (Exception e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+		UserHibDAO stHD=new UserHibDAO();
 		try {
-			UserJdbcDAO userJdbcDAO = new UserJdbcDAO();
-			return userJdbcDAO.save(e);
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (ClassNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			return stHD.save(e);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

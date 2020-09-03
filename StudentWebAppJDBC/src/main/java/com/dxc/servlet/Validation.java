@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dxc.dao.UserJdbcDAO;
+import com.dxc.hibdao.UserHibDAO;
 import com.dxc.service.UserServiceImple;
 
 /**
@@ -47,15 +48,25 @@ public class Validation extends HttpServlet {
 //		response.setContentType("text/html");
 //		PrintWriter out = response.getWriter();
 		
-		if(UserServiceImple.validate(un, pw)) {
-			HttpSession session = request.getSession(true);
-			session.setAttribute("usnme", un);
-			RequestDispatcher rd = request.getRequestDispatcher("DisplayStudents.jsp");
-			rd.forward(request, response);
-			
-		}
-		else {
-			response.sendRedirect("login.jsp");
+		try {
+			if(UserServiceImple.validate(un, pw)) {
+				HttpSession session = request.getSession(true);
+				session.setAttribute("usnme", un);
+				RequestDispatcher rd = request.getRequestDispatcher("DisplayStudents.jsp");
+				rd.forward(request, response);
+				
+			}else {
+				response.sendRedirect("login.jsp");
+			}
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 //	private void showLogin(HttpServletResponse response,boolean error) throws IOException {

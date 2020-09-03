@@ -7,33 +7,43 @@ import java.util.List;
 
 import com.dxc.beans.Student;
 import com.dxc.dao.StudentjdbcDAO;
+import com.dxc.hibdao.StudentHibDAO;
 
 public class StudentServiceImple implements Service<Student>{
 
 	@Override
 	public boolean save(Student student) {
 		// TODO Auto-generated method stub
+		
+//		try {
+//			StudentjdbcDAO studentjdbcDAO=new StudentjdbcDAO();
+//			return studentjdbcDAO.save(student);
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+
+		
 		try {
-			StudentjdbcDAO studentjdbcDAO=new StudentjdbcDAO();
-			return studentjdbcDAO.save(student);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			StudentHibDAO stHD=new StudentHibDAO();
+			return stHD.save(student);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
-		
 	}
 
 	@Override
@@ -41,21 +51,28 @@ public class StudentServiceImple implements Service<Student>{
 		// TODO Auto-generated method stub
 		Student student=null;
 		
+//		try {
+//			StudentjdbcDAO studentjdbcDAO=new StudentjdbcDAO();
+//			student=studentjdbcDAO.find(id);
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		StudentHibDAO stHD=new StudentHibDAO();
 		try {
-			StudentjdbcDAO studentjdbcDAO=new StudentjdbcDAO();
-			student=studentjdbcDAO.find(id);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			student= stHD.find(id);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -68,24 +85,31 @@ public class StudentServiceImple implements Service<Student>{
 		// TODO Auto-generated method stub
 		List<Student> students=null;
 		
+//		try {
+//			StudentjdbcDAO studentjdbcDAO=new StudentjdbcDAO();
+//			try {
+//				students=studentjdbcDAO.findAll();
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		StudentHibDAO stHD=new StudentHibDAO();
 		try {
-			StudentjdbcDAO studentjdbcDAO=new StudentjdbcDAO();
-			try {
-				students=studentjdbcDAO.findAll();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
+			students=stHD.findAll();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -123,23 +147,30 @@ public class StudentServiceImple implements Service<Student>{
 	public boolean delete(int id) {
 		// TODO Auto-generated method stub
 		boolean res=false;
-		StudentjdbcDAO studentjdbcDAO;
-		
+//		StudentjdbcDAO studentjdbcDAO;
+//		
+//		try {
+//			studentjdbcDAO = new StudentjdbcDAO();
+//			res=studentjdbcDAO.delete(id);
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		StudentHibDAO stHD=new StudentHibDAO();
 		try {
-			studentjdbcDAO = new StudentjdbcDAO();
-			res=studentjdbcDAO.delete(id);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			res=stHD.delete(id);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -149,12 +180,19 @@ public class StudentServiceImple implements Service<Student>{
 
 	@Override
 	public boolean edit(Student e) {
+//		try {
+//			StudentjdbcDAO studentjdbcDAO=new StudentjdbcDAO();
+//			return studentjdbcDAO.edit(e);
+//		} catch (ClassNotFoundException | IOException | SQLException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (Exception e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+		StudentHibDAO stHD=new StudentHibDAO();
 		try {
-			StudentjdbcDAO studentjdbcDAO=new StudentjdbcDAO();
-			return studentjdbcDAO.edit(e);
-		} catch (ClassNotFoundException | IOException | SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			return stHD.edit(e);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

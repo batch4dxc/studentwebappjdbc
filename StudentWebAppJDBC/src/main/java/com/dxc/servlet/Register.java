@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dxc.beans.User;
 import com.dxc.dao.UserJdbcDAO;
+import com.dxc.hibdao.UserHibDAO;
 import com.dxc.service.UserServiceImple;
 
 /**
@@ -47,8 +48,8 @@ public class Register extends HttpServlet {
 	User user=new User(username, password);
 	boolean bool=false;
 	try {
-		UserServiceImple userServiceImple = new UserServiceImple();
-		bool=userServiceImple.save(user);
+		UserServiceImple uh=new UserServiceImple();
+		bool=uh.save(user);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

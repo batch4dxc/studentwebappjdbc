@@ -2,7 +2,12 @@ package com.dxc.beans;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class User implements Serializable,Comparable<User> {
+	@Id
 	String username;
 	String password;
 	public User() {
